@@ -19,7 +19,7 @@ const Home = () => {
                 <TotalBalanceBox
                  accounts={[]}
                  totalBanks={1}
-                 totalCurrentBalance={1234}
+                 totalCurrentBalance={20000}
                 />
             </header>
         </div>
