@@ -1,3 +1,5 @@
+'use client'
+
 import { sidebarLinks } from '@/constants';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -7,12 +9,11 @@ import { usePathname } from 'next/navigation';
 const Sidebar = ({user}: SiderbarProps) => {
 
     const pathname=usePathname();
-    
+
   return (
     <section className="sidebar">
       <nav className="flex flex-col gap-4">
-        <Link href="/" passHref>
-          <div className="mb-12 cursor-pointer items-center gap-2">
+        <Link href="/" className="mb-12 cursor-pointer items-center gap-2">
             <Image
               src="/icons/logo.svg"
               width={36}
@@ -22,12 +23,11 @@ const Sidebar = ({user}: SiderbarProps) => {
             />
           <h1 className='sidebar-logo'>
             Horizon</h1>
-          </div>
         </Link>
 
         {sidebarLinks.map((item)=> {
 
-            const isActive= pathname === item.route || pathname.startsWith(`${item.route}/`)
+            const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`)
 
             return (
             <Link href={item.route} key={item.label}
