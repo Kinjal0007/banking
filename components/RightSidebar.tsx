@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 import BankCard from './BankCard'
+import Footer from './Footer'
 
 const RightSidebar = ({ user, transactions, banks} : RightSidebarProps) => {
   return (
@@ -48,7 +49,7 @@ const RightSidebar = ({ user, transactions, banks} : RightSidebarProps) => {
               <BankCard 
                 key={banks[0].$id}
                 account={banks[0]}
-                userName={`${user.firstName} ${user.lastName}`}
+                userName={user.name}
                 showBalance={false}
               />
             </div>
@@ -57,7 +58,7 @@ const RightSidebar = ({ user, transactions, banks} : RightSidebarProps) => {
                 <BankCard 
                   key={banks[1].$id}
                   account={banks[1]}
-                  userName={`${user.firstName} ${user.lastName}`}
+                  userName={user.name}
                   showBalance={false}/>
               </div>
             )}

@@ -51,7 +51,9 @@ export const signUp = async (userData: SignUpParams) => {
 export async function getLoggedInUser() {
     try {
       const { account } = await createSessionClient();
-      return await account.get();
+      const User = await account.get();
+
+      return parseStringify(User);
     } catch (error) {
       return null;
     }
@@ -60,8 +62,9 @@ export async function getLoggedInUser() {
 export const logoutAccount = async () => {
     try {
         const{account} = await createSessionClient();
-
-        cookies().delete("appwrite-session")
+        cookies().delete("appwrite-session");
+        
+        await account.deleteSession('current');
     } catch (error) {
         return null;
     }
